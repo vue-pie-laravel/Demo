@@ -1,0 +1,31 @@
+//  ---------------------------------------
+// https://github.com/daneden/animate.css
+// https://daneden.github.io/animate.css/
+//
+// Import only what is used
+//  ---------------------------------------
+
+@import '~animate.css/source/_base.css';
+@import '~animate.css/source/attention_seekers/pulse.css';
+@import '~animate.css/source/bouncing_entrances/bounceInDown.css';
+@import '~animate.css/source/sliding_exits/slideOutLeft.css';
+@import '~animate.css/source/sliding_entrances/slideInRight.css';
+
+// Router Link Effects
+
+.router-link-exact-active {
+  animation: pulse 1s
+}
+
+
+// ---------------------------------------
+// Vue transitions
+// ---------------------------------------
+
+.router-view-enter-active {
+  animation: slideInRight .5s;
+}
+
+.router-view-leave-active {
+  animation: slideOutLeft .5s;
+}
