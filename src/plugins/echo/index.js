@@ -9,8 +9,8 @@ export default {
       key: process.env.VUE_APP_PUSHER_KEY,
       cluster: process.env.VUE_APP_PUSHER_CLUSTER,
       encrypted: process.env.NODE_ENV === 'production',
-      wsHost: '127.0.0.1',
-      wsPort: 6001,
+      wsHost: process.env.VUE_APP_WS_HOST,
+      wsPort: process.env.VUE_APP_WS_PORT,
       disableStats: true
       // stats_host: 'stats.pusher.com'
     })
