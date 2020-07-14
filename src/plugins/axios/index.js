@@ -9,9 +9,6 @@ export default {
     baseURL: null
 
   }) {
-    if (this.installed) { return }
-
-    this.installed = true
     this.params = options
 
     this.register()
