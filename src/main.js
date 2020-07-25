@@ -1,4 +1,4 @@
-import '@/scss/app.scss'
+import './scss/app.scss'
 
 /**
  * Import Vue.
@@ -10,7 +10,7 @@ import Vue from 'vue'
 /**
  * Import application configuration data.
  */
-import { config } from './config'
+import { config, plugins } from './config'
 
 /**
  * Import routes.
@@ -140,6 +140,22 @@ window.App = new Vue({
       this.$emit('app:authenticated', value)
     }
 
+  },
+
+  mounted () {
+    const vm = this
+
+    if (plugins.echo.enabled) {
+      // Relay Names Socket Emitted events to Vue Events
+      vm.$Echo.channel('Global').listen('PublicEventEmitter', event => {
+        console.log('PublicEventEmitter', event)
+        vm.$emit(event.name, event.payload)
+      })
+
+      vm.$on('hello-world', event => {
+        console.log(event.message)
+      })
+    }
   }
 
 }).$mount(config.mountAppTo)
